@@ -45,7 +45,7 @@ Returns the file size.
 ## Example usage
 
 ```yaml
-uses: DamianReeves/write-file-action@master
+uses: hunghg255/action-modify-file@main
 with:
   path: ${{ env.home}}/.bashrc
   contents: |
@@ -71,7 +71,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Overwrite file
-        uses: 'DamianReeves/write-file-action@master'
+        uses: 'hunghg255/action-modify-file@main'
         with:
           path: path/to/file.js
           mode: overwrite
