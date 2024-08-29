@@ -5,6 +5,8 @@ import { promisify } from 'node:util';
 import { getInput, setFailed, setOutput } from '@actions/core';
 import { mkdirP } from '@actions/io';
 
+import { logDebug } from './logs';
+
 const appendFileAsync = promisify(appendFile);
 const existsAsync = promisify(exists);
 const writeFileAsync = promisify(writeFile);
@@ -15,6 +17,10 @@ async function main() {
     const path = getInput('path', { required: true });
     const contents = getInput('contents', { required: true });
     const mode = (getInput('mode') || 'append').toLocaleLowerCase();
+
+    logDebug(`path: ${path}`);
+    logDebug(`contents: ${contents}`);
+    logDebug(`mode: ${mode}`);
 
     // Ensure the correct mode is specified
     if (mode !== 'append' && mode !== 'overwrite' && mode !== 'preserve') {
