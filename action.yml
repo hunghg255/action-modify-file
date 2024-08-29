@@ -1,0 +1,21 @@
+name: 'Modify File'
+description: 'Modify file with contents.'
+author: 'hunghg255'
+branding:
+  icon: 'package'
+  color: 'gray-dark'
+
+runs:
+  using: 'node16'
+  main: 'lib/index.js'
+
+inputs:
+  path:
+    description: 'Set a path.'
+    required: true
+  contents:
+    description: 'Set a contents'
+    required: true
+  mode:
+    description: 'Set a mode write or append contents.'
+    required: false
